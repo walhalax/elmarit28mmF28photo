@@ -8,7 +8,7 @@ API_KEY = st.secrets["flickr_api_key"]
 API_URL = 'https://www.flickr.com/services/rest/'
 SEARCH_TEXT = 'Elmarit 28mm f2.8 2nd'
 
-def fetch_images(text, per_page=100):
+def fetch_images(text, per_page=200):
     """Flickrから画像を検索してURLリストを取得"""
     params = {
         'method': 'flickr.photos.search',
