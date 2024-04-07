@@ -9,7 +9,8 @@ st.set_page_config(layout="wide")
 # Flickr APIの設定
 API_KEY = st.secrets["flickr_api_key"]
 API_URL = 'https://www.flickr.com/services/rest/'
-SEARCH_TEXT = 'Elmarit 28mm f2.8 2nd'
+# 検索キーワードをOR条件で指定
+SEARCH_TEXT = '"Elmarit 28mm f2.8 2nd" OR "Elmarit 28mm f2.8 second"'
 
 def fetch_images(text, per_page=300):
     """Flickrから画像を検索してURLリストを取得"""
