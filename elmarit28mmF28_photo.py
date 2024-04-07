@@ -21,7 +21,7 @@ def fetch_images(text, per_page=200):
         'content_type': 1,
         'media': 'photos',
         'per_page': per_page,
-        'sort': 'random',  # 投稿順をランダムに設定
+        'sort': 'date-posted-desc',  # 検索結果を最新のものに限定
         'format': 'json',
         'nojsoncallback': 1
     }
