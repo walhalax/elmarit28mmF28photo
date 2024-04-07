@@ -3,6 +3,9 @@ import requests
 from PIL import Image
 from io import BytesIO
 
+# ページ設定を"wide mode"に設定
+st.set_page_config(layout="wide")
+
 # Flickr APIの設定
 API_KEY = st.secrets["flickr_api_key"]
 API_URL = 'https://www.flickr.com/services/rest/'
