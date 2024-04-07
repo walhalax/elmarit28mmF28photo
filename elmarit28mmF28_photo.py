@@ -18,7 +18,7 @@ def fetch_images(text, per_page=300):
         'content_type': 1,
         'media': 'photos',
         'per_page': per_page,
-        'sort': 'date-posted-desc',
+        'sort': 'random',  # 投稿順をランダムに設定
         'format': 'json',
         'nojsoncallback': 1
     }
