@@ -42,17 +42,19 @@ def main():
     st.title('Elmarit 28mm f2.8 example photo')
 
     # レンズバージョンの選択セレクトボックス
-    lens_version = st.selectbox("Please select lens version :", ['','1st', '2nd', '3rd', 'ASPH'])
+    lens_version = st.selectbox("Please select lens version :", ['','1st(1965-1972)', '2nd(1972-1979)', '3rd(1979-1993)', '4th(1993-)', '5th[ASPH](2016-)'])
 
     # SEARCH_TEXTの動的な設定
-    if lens_version == '1st':
+    if lens_version == '1st(1965-1972)':
         SEARCH_TEXT = 'Elmarit 28mm f2.8 1st OR Elmarit 28mm f2.8 first'
-    elif lens_version == '2nd':
+    elif lens_version == '2nd(1972-1979)':
         SEARCH_TEXT = 'Elmarit 28mm f2.8 2nd OR Elmarit 28mm f2.8 second'
-    elif lens_version == '3rd':
+    elif lens_version == '3rd(1979-1993)':
         SEARCH_TEXT = 'Elmarit 28mm f2.8 3rd OR Elmarit 28mm f2.8 third'
-    elif lens_version == 'ASPH':
-        SEARCH_TEXT = 'Elmarit 28mm f2.8 ASPH OR Elmarit 28mm f2.8 Aspherical'
+    elif lens_version == '4th(1993-)':
+        SEARCH_TEXT = 'Elmarit 28mm f2.8 4th OR Elmarit 28mm f2.8 fourth'
+    elif lens_version == '5th[ASPH](2016-)':
+        SEARCH_TEXT = 'Elmarit 28mm f2.8 5th OR Elmarit 28mm f2.8 ASPH OR Elmarit 28mm f2.8 Aspherical'
 
     # セレクトボックスの選択をトリガーとして検索を実行
     if lens_version:
