@@ -9,8 +9,6 @@ st.set_page_config(layout="wide")
 # Flickr APIの設定
 API_KEY = st.secrets["flickr_api_key"]
 API_URL = 'https://www.flickr.com/services/rest/'
-# 検索キーワードをOR条件で指定
-SEARCH_TEXT = '"Elmarit 28mm f2.8 2nd" OR "Elmarit 28mm f2.8 second"'
 
 def fetch_images(text, per_page=300):
     """Flickrから画像を検索してURLリストを取得"""
@@ -41,12 +39,28 @@ def display_images(urls):
         st.image(image, use_column_width=True)
 
 def main():
-    st.title('Elmarit 28mm f2.8 2nd example photo')
-    urls = fetch_images(SEARCH_TEXT)
-    if urls:
-        display_images(urls)
-    else:
-        st.write('画像が見つかりませんでした。')
+    st.title('Elmarit 28mm f2.8 example photo')
+
+    # レンズバージョンの選択セレクトボックス
+    lens_version = st.selectbox("Please select lens version :", ['','1st', '2nd', '3rd', 'ASPH'])
+
+    # SEARCH_TEXTの動的な設定
+    if lens_version == '1st':
+        SEARCH_TEXT = 'Elmarit 28mm f2.8 1st OR Elmarit 28mm f2.8 first'
+    elif lens_version == '2nd':
+        SEARCH_TEXT = 'Elmarit 28mm f2.8 2nd OR Elmarit 28mm f2.8 second'
+    elif lens_version == '3rd':
+        SEARCH_TEXT = 'Elmarit 28mm f2.8 3rd OR Elmarit 28mm f2.8 third'
+    elif lens_version == 'ASPH':
+        SEARCH_TEXT = 'Elmarit 28mm f2.8 ASPH OR Elmarit 28mm f2.8 Aspherical'
+
+    # セレクトボックスの選択をトリガーとして検索を実行
+    if lens_version:
+        urls = fetch_images(SEARCH_TEXT)
+        if urls:
+            display_images(urls)
+        else:
+            st.write('画像が見つかりませんでした。')
 
 if __name__ == '__main__':
     main()
